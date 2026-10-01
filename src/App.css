@@ -1,0 +1,374 @@
+:root {
+  --bg-main: #181412;
+  --bg-card: #241e1a;
+  --bg-input: #1b1614;
+  --border-color: #362c26;
+  --text-primary: #f5ebe1;
+  --text-secondary: #a89a8e;
+  --accent-coral: #e07a5f;
+  --accent-coral-hover: #f08a6f;
+  --accent-red: #d9534f;
+  --accent-red-hover: #e8635f;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.5;
+}
+
+.app-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 36px 24px;
+}
+
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.app-header h1 {
+  font-family: Georgia, 'Playfair Display', serif;
+  font-size: 2.2rem;
+  margin: 0 0 6px 0;
+  color: #FAF4ED;
+}
+
+.subtitle {
+  color: var(--text-secondary);
+  font-size: 0.88rem;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.subtitle span {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.divider {
+  border: 0;
+  height: 1px;
+  background: var(--border-color);
+  margin: 24px 0 32px 0;
+  width: 100%;
+}
+
+.loading-state {
+  text-align: center;
+  padding: 60px 0;
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+}
+
+.book-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 24px;
+}
+
+.book-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.book-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.5);
+}
+
+.card-image-wrapper {
+  position: relative;
+  height: 280px;
+  background: #140f0d;
+  overflow: hidden;
+}
+
+.card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: rgba(255, 255, 255, 0.92);
+  color: #181412;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 0.72rem;
+  z-index: 2;
+}
+
+.card-body {
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.book-card-title {
+  font-family: Georgia, serif;
+  font-size: 1.05rem;
+  margin: 0 0 4px 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.book-author-year {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  margin: 0 0 14px 0;
+}
+
+.card-actions {
+  display: flex;
+  gap: 6px;
+  margin-top: auto;
+}
+
+.btn-action {
+  flex: 1;
+  background: #2e2621;
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  padding: 6px 0;
+  font-size: 0.78rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-action:hover {
+  color: var(--text-primary);
+  background: #3c322b;
+}
+
+.btn-action.btn-delete:hover {
+  color: #ff9999;
+  background: rgba(217, 83, 79, 0.2);
+  border-color: rgba(217, 83, 79, 0.4);
+}
+
+/* Buttons */
+.btn {
+  padding: 9px 18px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 0.88rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.btn-primary {
+  background: var(--accent-coral);
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  background: var(--accent-coral-hover);
+}
+
+.btn-secondary {
+  background: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  border-radius: 8px;
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-primary);
+}
+
+.btn-danger {
+  background: var(--accent-red);
+  color: white;
+  border-radius: 8px;
+}
+
+.btn-danger:hover {
+  background: var(--accent-red-hover);
+}
+
+/* Modals */
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(10, 8, 7, 0.8);
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 16px;
+}
+
+.modal-content {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  padding: 28px;
+  border-radius: 14px;
+  width: 100%;
+  max-width: 480px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+}
+
+.modal-content h2 {
+  margin-top: 0;
+  font-family: Georgia, serif;
+  font-size: 1.4rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 14px;
+}
+
+.form-group label {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  margin-bottom: 6px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  background: var(--bg-input);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  padding: 10px 12px;
+  border-radius: 8px;
+  outline: none;
+  font-family: inherit;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--accent-coral);
+}
+
+.form-row {
+  display: flex;
+  gap: 12px;
+}
+.flex-1 { flex: 1; }
+.flex-2 { flex: 2; }
+
+.form-image-preview-container {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin: 14px 0;
+  padding: 10px;
+  background: rgba(0,0,0,0.2);
+  border-radius: 8px;
+}
+
+.preview-cover-box {
+  width: 48px;
+  height: 64px;
+  background: #140f0d;
+  border-radius: 4px;
+  overflow: hidden;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.preview-cover-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.fallback-plain-cover {
+  font-size: 0.65rem;
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+.preview-help-text {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.modal-actions.center {
+  justify-content: center;
+}
+
+.modal-actions.align-right {
+  justify-content: flex-end;
+}
+
+/* View Modal */
+.view-modal {
+  display: flex;
+  gap: 20px;
+  max-width: 520px;
+}
+
+.view-image-container {
+  width: 160px;
+  height: 220px;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #140f0d;
+}
+
+.view-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.view-details {
+  flex-grow: 1;
+}
+
+.view-details h3 {
+  font-family: Georgia, serif;
+  font-size: 1.3rem;
+  margin: 0 0 6px 0;
+}
+
+.view-author {
+  color: var(--accent-coral);
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.view-desc {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
